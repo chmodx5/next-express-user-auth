@@ -1,0 +1,91 @@
+api endpoints:
+note:
+    - * - guest has access
+    - ** -  user has access
+    - *** - admin has access
+1. products
+    a. *api/products - all the products
+    b. *api/product/{productID} - get a single product by id 
+    c. ***api/product/update/{productID} - update a product
+    d. ***api/product/delete/{productID} - delete a product
+    e. ***api/product/create - create a product 
+    f. *api/products/category - get products that belong to a cateagory
+    g. *api/products/search/{queryStrings} -  search for products in the store and the following query strings can be parsed :
+        - searchQuery
+        - pageNumber
+        - sort 
+        - filter
+2. categories
+    a. *api/categories - a list of all categories
+    b. ***api/category/create - create a new category
+    c. ***api/category/delete - delete a category
+    d. ***api/category/update - update a category
+    e. *api/category/products - a list of all products belonging to a category
+3. users
+    a. ***api/users -  a list of all users
+    b. *api/user/create - create a new user
+    c. **api/user/update/{userID} - update a user
+    d. **api/user/delete/{userID} - delete a user
+    c. **api/user/{userID} - get all the details on a user
+4. cart 
+    a. **api/cart/create - create a new cart
+    b. **api/cart/update - update a cart details
+    c. **api/cart/delete - delete cart
+    d. **api/cart/{cartID} - view cart details
+5. analytics (these routes just collect some data from the user)
+    a. ***api/analytics/create/productclicked - registers that a product has been clicked ( either by a guest or logged in user , i can also use this to know which user clicks on whick product)
+    b. ***api/analytics/product/{productID}/clicks - get the number of all clicks that product has (returns the clicks by logged in users and also guest users)
+
+
+
+
+
+this project is to have the following pages
+1. The Homepagege
+    a. should have search
+    b. should show a list of trending products
+    c. should show a list of top products from different categories
+    d. should have a list of all the categories
+2. The single category(s) page
+    a. contains all products related to that category
+    b. has a search for items in that category
+    c. has filters for the items in that category
+3. The single product page
+    a. has an image carousel showing all images for that items
+    b. has the product options e.g available colors, available sizes, number or pieces
+    c. has tabs with the full product details and comments(reviews)
+    d. has related products at the bottom
+4. The contact us page
+    a. contains the full contacts of the store i.e the  address, phone number, google maps directions, opening times 
+    b. a contact us form
+5. The faq page
+    a. pretty self explanatory here but if you must know this page contains the faqs and the link will just be placed on the footer
+6. A shopping cart (can be page or component)
+7. Search results page
+    a. has the search results
+    b. has a filters for the search results e.g by price
+8. Checkout page
+9. Login page
+10. Signup page
+11. Admin dashboard 
+    a. has all the random stats e.g which product has most clicks, total sales so far, items in the inventory, items that are running out of stock, those in stock
+12. Admin view all products
+    a. this is where the admin can browse through all products in the system
+    b. has a filter of the products being displayed 
+    c. has a search option 
+    d. the single product is clickable and directs to a page containing all the details on that products
+13. Admin single product
+    a. all the details like those on the single product page above
+    b. has an option to update the product details
+    c. has an option to delete the product 
+14. Admin add product page
+    a. this is where the admin ca. create a new product
+15. Admin categories
+    a. here you can view all the categories
+    b. create a cateagory
+    c. edit a category
+    d. delete a category
+16. Admin Accounts
+    a. here the admin can see a list of all the users in the system
+
+

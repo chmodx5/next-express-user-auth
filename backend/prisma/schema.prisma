@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String @id @default(cuid())
+  username          String @unique
+  email             String @unique
+  password          String
+  profile           Profile?
+  userAccessTokens  UserAccessTokens[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Profile {
+  id                String @id @default(cuid())
+  gender            String 
+  aboutMe           String
+  location          String @unique
+  user              User @relation(fields: [userId], references: [id])
+  userId            String @unique
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model UserAccessTokens {
+  id                 String @id @default(cuid())
+  token              String @db.LongText
+  refreshToken       String @db.LongText
+  user               User @relation(fields: [userId], references: [id])
+  userId             String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+
+
+
+
+
